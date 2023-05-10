@@ -33,3 +33,6 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build test
+      env:
+        USER_1_ID: ${{ secrets.MY_TOKEN_ID }}
+        USER_1_TOKEN: ${{ secrets.MY_TOKEN }}
