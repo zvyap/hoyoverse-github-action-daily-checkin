@@ -21,7 +21,7 @@ public class HoyoDaily {
                 }catch (Exception e) {
                     if(e instanceof AlreadyCheckInException) {
                         System.out.println(action.getToken().getLtuid() + " check in - already checked in [" + type + "]");
-                        return;
+                        continue;
                     }
                     System.out.println(action.getToken().getLtuid() + " check in - failed [" + type + "]");
                     e.printStackTrace();
