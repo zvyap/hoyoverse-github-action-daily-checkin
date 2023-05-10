@@ -70,3 +70,18 @@
 * Add the extra user secret (Remember the secret name you put)
 
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/1926c27f-8f68-4021-9d95-64c11a2babb5)
+
+## Check is it working
+* Go to `Actions` tab
+* If `Actions` is not enabled, just enable it
+* Select `Daily Check In Task`
+
+![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/2029ffe5-6ef2-4892-a182-224e57de76b8)
+* Click `Run workflow` -> `Run workflow`
+
+![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/a1e4dfb7-4024-4cef-b43f-5e3cbe3d96e1)
+
+![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/5104281a-b4aa-45b5-be76-d7ae14466877)
+* If you see a green tick beside them, it mean checkin supported
+![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/2a80e30d-df1b-4763-a3e2-1f57365d29e2)
+* And it run every midnight 12:15
