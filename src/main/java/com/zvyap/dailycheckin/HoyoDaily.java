@@ -26,6 +26,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class HoyoDaily {
 
@@ -92,7 +93,7 @@ public class HoyoDaily {
 
         String title = WebhookMessage.WEBHOOK_TITLE.getMessage();
         if(title.contains("{")) {
-            HoyoGameRole role = feature.getAPI().getGameRoles(token, type).stream().min(Comparator.comparing(HoyoGameRole::getLevel)).orElse(null);
+            HoyoGameRole role = feature.getAPI().getGameRoles(token, type).stream().max(Comparator.comparing(HoyoGameRole::getLevel)).orElse(null);
             if(role != null){
                 title = MessageFormat.format(title, role.getGameUid(), role.getNickname(), role.getRegion(), role.getLevel());
             }
@@ -126,10 +127,14 @@ public class HoyoDaily {
                 .addField(new WebhookEmbed.EmbedField(true, WebhookMessage.FIELD_REWARD_TOMORROW.getMessage(), itemWithCount(tomorrow.getName(), tomorrow.getCount())))
                 .addField(new WebhookEmbed.EmbedField(false, WebhookMessage.FIELD_OFFICIAL_MESSAGE.getMessage(), officialMessage));
 
-        client.send(new WebhookMessageBuilder()
-                .setAvatarUrl(info.getAvatar())
-                .setUsername(info.getName())
-                .addEmbeds(builder.build()).build());
+        try {
+            client.send(new WebhookMessageBuilder()
+                    .setAvatarUrl(info.getAvatar())
+                    .setUsername(info.getName())
+                    .addEmbeds(builder.build()).build()).get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         client.close();
     }
 
