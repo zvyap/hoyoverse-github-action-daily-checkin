@@ -6,6 +6,7 @@ import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;
 import com.zvyap.hoyoapi.APIEnvironment;
 import com.zvyap.hoyoapi.GameType;
+import com.zvyap.hoyoapi.HoyoGameRole;
 import com.zvyap.hoyoapi.HoyoToken;
 import com.zvyap.hoyoapi.HoyoverseAPI;
 import com.zvyap.hoyoapi.exception.AlreadyCheckInException;
@@ -19,7 +20,9 @@ import com.zvyap.hoyoapi.response.HoyoGamesDetailsResponse;
 import com.zvyap.hoyoapi.util.Utils;
 
 import java.awt.Color;
+import java.text.MessageFormat;
 import java.time.OffsetDateTime;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +30,13 @@ import java.util.Map;
 public class HoyoDaily {
 
     public static void main(String[] args) {
-
+        DailyCheckInFeature feature = new DailyCheckInFeature(new HoyoverseAPI(APIEnvironment.OVERSEA));
+        webhookAction(feature, WebhookInfo.builder()
+                        .url("https://canary.discord.com/api/webhooks/1106275612215222352/9J5cA_LrGC2aKHPvGvyaPWXYqaSHsj9Apiw3G_ZWeICIVtn0jglYKY9aCBaDzV4D2FPG")
+                        .avatar("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
+                        .name("HoyoDaily")
+                        .build(), GameType.GENSHIN_IMPACT, HoyoToken.of("90156679", "x8uYe30qVSDuUo0OZQiOkz2b4O3gLLD0DAVuk2L0"),
+                null, new AlreadyCheckInException(-5003, "Testing"));
     }
 
     public static void checkIn(DailyCheckInFeature feature, List<CheckInAction> actions) {
@@ -75,9 +84,18 @@ public class HoyoDaily {
         if(exception instanceof AlreadyCheckInException) {
             message = WebhookMessage.WEBHOOK_ALREADY_CHECK_IN.getMessage();
         }else if(exception instanceof HoyoverseAPIRetCodeException) {
-            message = String.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), ((HoyoverseAPIRetCodeException) exception).getRetcode());
+            message = MessageFormat.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), ((HoyoverseAPIRetCodeException) exception).getRetcode());
         }else if(response.getRetcode() != 0) {
-            message = String.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), response.getRetcode());
+            message = MessageFormat.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), response.getRetcode());
+        }
+
+
+        String title = WebhookMessage.WEBHOOK_TITLE.getMessage();
+        if(title.contains("{")) {
+            HoyoGameRole role = feature.getAPI().getGameRoles(token, type).stream().min(Comparator.comparing(HoyoGameRole::getLevel)).orElse(null);
+            if(role != null){
+                title = MessageFormat.format(title, role.getGameUid(), role.getNickname(), role.getRegion(), role.getLevel());
+            }
         }
 
         WebhookEmbedBuilder builder = new WebhookEmbedBuilder()
@@ -86,7 +104,7 @@ public class HoyoDaily {
                         "https://github.com/zvyap/Hoyoverse-API"))
                 .setTimestamp(OffsetDateTime.now())
                 .setColor(color.getRGB())
-                .setTitle(new WebhookEmbed.EmbedTitle(WebhookMessage.WEBHOOK_TITLE.getMessage(), null))
+                .setTitle(new WebhookEmbed.EmbedTitle(title, null))
                 .setFooter(new WebhookEmbed.EmbedFooter(details.getName(), details.getIcon()))
                 .setDescription(message)
                 .addField(new WebhookEmbed.EmbedField(true, WebhookMessage.FIELD_GAME.getMessage(), feature.getAPI().getEnvironment().getAPIConstant(type).getName()));
