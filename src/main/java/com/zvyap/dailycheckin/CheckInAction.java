@@ -15,4 +15,5 @@ public class CheckInAction {
     private final HoyoToken token;
     @Singular
     private final List<GameType> games;
+    private final WebhookInfo webhook;
 }
