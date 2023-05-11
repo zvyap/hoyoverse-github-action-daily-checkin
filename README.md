@@ -10,6 +10,7 @@
   - Tears of Themis
 * Auto checked in every day
 * [Discord Webhook](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/wiki/Discord-Webhook)
+* You can choose to update -> [HERE~](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/wiki/Update-this-project-to-your-fork)
 
 ## How to use?
 * Create a fork of this project
