@@ -24,11 +24,6 @@ public class CheckInDailyTest {
 
                 CheckInAction.builder()
                         .token(HoyoToken.of(System.getenv("USER_1_ID"), System.getenv("USER_1_TOKEN")))
-                        .webhook(WebhookInfo.builder()
-                                .url(System.getenv("WEBHOOK_URL"))
-                                .avatar("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
-                                .name("HoyoDaily")
-                                .build())
                         .game(GameType.GENSHIN_IMPACT)
                         .game(GameType.HONKAI_STAR_RAIL)
                         .build()
