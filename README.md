@@ -9,6 +9,7 @@
   - Honkai: Star Rail
   - Tears of Themis
 * Auto checked in every day
+* [Discord Webhook](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/wiki/Discord-Webhook)
 
 ## How to use?
 * Create a fork of this project
