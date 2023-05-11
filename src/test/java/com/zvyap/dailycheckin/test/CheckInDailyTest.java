@@ -2,6 +2,7 @@ package com.zvyap.dailycheckin.test;
 
 import com.zvyap.dailycheckin.CheckInAction;
 import com.zvyap.dailycheckin.HoyoDaily;
+import com.zvyap.dailycheckin.WebhookInfo;
 import com.zvyap.hoyoapi.APIEnvironment;
 import com.zvyap.hoyoapi.APILocale;
 import com.zvyap.hoyoapi.GameType;
