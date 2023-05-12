@@ -31,13 +31,6 @@ import java.util.concurrent.ExecutionException;
 public class HoyoDaily {
 
     public static void main(String[] args) {
-        DailyCheckInFeature feature = new DailyCheckInFeature(new HoyoverseAPI(APIEnvironment.OVERSEA));
-        webhookAction(feature, WebhookInfo.builder()
-                        .url("https://canary.discord.com/api/webhooks/1106275612215222352/9J5cA_LrGC2aKHPvGvyaPWXYqaSHsj9Apiw3G_ZWeICIVtn0jglYKY9aCBaDzV4D2FPG")
-                        .avatar("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
-                        .name("HoyoDaily")
-                        .build(), GameType.GENSHIN_IMPACT, HoyoToken.of("90156679", "x8uYe30qVSDuUo0OZQiOkz2b4O3gLLD0DAVuk2L0"),
-                null, new AlreadyCheckInException(-5003, "Testing"));
     }
 
     public static void checkIn(DailyCheckInFeature feature, List<CheckInAction> actions) {
