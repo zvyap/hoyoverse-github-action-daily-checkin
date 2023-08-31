@@ -38,8 +38,13 @@ public class HoyoDaily {
             for (GameType type : action.getGames()) {
                 long start = System.currentTimeMillis();
                 try {
-                    webhookAction(feature, action.getWebhook(), type, action.getToken(), feature.signDaily(type, action.getToken()), null);
-                    printLog(action.getToken().getLtuid(), "successful", type, System.currentTimeMillis() - start);
+                    HoyoDailyCheckInSignResponse response = feature.signDaily(type, action.getToken());
+                    if(response.isCaptcha()) {
+                        printLog(action.getToken().getLtuid(), "failed (captcha)", type, System.currentTimeMillis() - start);
+                    }else {
+                        printLog(action.getToken().getLtuid(), "successful", type, System.currentTimeMillis() - start);
+                    }
+                    webhookAction(feature, action.getWebhook(), type, action.getToken(), response, null);
                 } catch (Exception e) {
                     if (e instanceof HoyoverseAPIException) {
                         webhookAction(feature, action.getWebhook(), type, action.getToken(), null, (HoyoverseAPIException) e);
@@ -64,23 +69,25 @@ public class HoyoDaily {
 
         Color color = Color.GREEN;
         String officialMessage = response != null ? response.getMessage() : exception.getMessage();
-        if (exception != null) {
-            if (exception instanceof AlreadyCheckInException) {
-                color = Color.BLUE;
-            } else {
-                color = Color.RED;
-            }
-        }
 
         WebhookClient client = WebhookClient.withUrl(info.getUrl());
         HoyoGamesDetailsResponse.GameDetails details = getDetails(feature.getAPI(), type);
         String message = WebhookMessage.WEBHOOK_SUCCESS.getMessage();
         if(exception instanceof AlreadyCheckInException) {
             message = WebhookMessage.WEBHOOK_ALREADY_CHECK_IN.getMessage();
-        }else if(exception instanceof HoyoverseAPIRetCodeException) {
-            message = MessageFormat.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), ((HoyoverseAPIRetCodeException) exception).getRetcode());
+            color = Color.BLUE;
+        }else if(exception instanceof HoyoverseAPIRetCodeException e) {
+            message = MessageFormat.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), e.getRetcode());
+            color = Color.RED;
+        }else if(exception instanceof HoyoverseAPIException) {
+            message = MessageFormat.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), exception.getClass());
+            color = Color.RED;
         }else if(response.getRetcode() != 0) {
             message = MessageFormat.format(WebhookMessage.WEBHOOK_FAILED.getMessage(), exception.getMessage(), response.getRetcode());
+            color = Color.RED;
+        }else if(response.isCaptcha()) {
+            message = WebhookMessage.WEBHOOK_CAPTCHA.getMessage();
+            color = Color.ORANGE;
         }
 
 

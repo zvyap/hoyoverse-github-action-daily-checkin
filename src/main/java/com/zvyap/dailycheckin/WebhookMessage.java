@@ -5,6 +5,7 @@ public enum WebhookMessage {
     WEBHOOK_SUCCESS("Daily checked in successfully"),
     WEBHOOK_ALREADY_CHECK_IN("Already checked in"),
     WEBHOOK_FAILED("Daily check in failed - {0},{1}"), //message and retcode
+    WEBHOOK_CAPTCHA("You Hit Captcha! Please check in manually"),
     FIELD_GAME("Game"),
     FIELD_REWARD_TODAY("Reward Today"),
     FIELD_REWARD_TOMORROW("Reward Tomorrow"),
