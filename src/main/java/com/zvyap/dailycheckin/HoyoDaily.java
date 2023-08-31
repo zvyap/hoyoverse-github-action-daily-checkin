@@ -52,7 +52,6 @@ public class HoyoDaily {
                     } else {
                         e.printStackTrace();
                     }
-                    e.printStackTrace();
                     printLog(action.getToken().getLtuid(), "failed", type, System.currentTimeMillis() - start);
                 }
             }
