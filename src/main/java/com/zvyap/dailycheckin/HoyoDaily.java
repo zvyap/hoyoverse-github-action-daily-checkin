@@ -52,6 +52,7 @@ public class HoyoDaily {
                     } else {
                         e.printStackTrace();
                     }
+                    e.printStackTrace();
                     printLog(action.getToken().getLtuid(), "failed", type, System.currentTimeMillis() - start);
                 }
             }
@@ -60,6 +61,7 @@ public class HoyoDaily {
 
     private static void printLog(String id, String status, GameType gameType, long time) {
         System.out.println(id + " check in - " + status + " [" + gameType + "] " + time + "ms");
+        System.out.flush();
     }
 
     private static void webhookAction(DailyCheckInFeature feature, WebhookInfo info, GameType type, HoyoToken token, HoyoDailyCheckInSignResponse response, HoyoverseAPIException exception) {
