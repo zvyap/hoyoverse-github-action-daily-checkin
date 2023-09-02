@@ -26,7 +26,6 @@
 * GameType's name please follow [here](https://github.com/zvyap/Hoyoverse-API/blob/master/src/main/java/com/zvyap/hoyoapi/GameType.java) [GENSHIN_IMPACT, HONKAI_IMPACT_3RD, HONKAI_STAR_RAIL, TEARS_OF_THEMIS]
 * For those only use for only account, you going to end here [If not scroll downward]
 * Just click `Commit changes...` at bottom right & click `Commit changes`
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/20756b0d-1f48-4dc6-a1cd-8a29e3a62162)
 <br>
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/a1490ec8-909d-43f8-aacd-06c77f6489f8)
@@ -34,17 +33,11 @@
 ## Put the token into github (LAST STEP)
 * Click `Settings` and click `Secrets and variables` -> `Actions` -> `New repository secret`
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/589f1a3a-ba94-48d3-8a34-0b31497a9abf)
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/b0c46819-dce8-4b66-88ea-05a5e01a3f0a)
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/30e8c938-4a1e-4971-ad98-8d30db536191)
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/8245907c-5b78-4c2b-8e9c-bb0d76b31bf3)
-
 * Follow the picture below
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/36197c2e-0698-4bb2-9e09-18d673beb4f7)
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/5883c6c8-a47d-410d-b45f-e92b04649b6e)
 
 * If you got extra account, repeat the step with the secret you put in the `gradle.yml` file
@@ -68,21 +61,18 @@
 * Click `Commit changes...` at bottom right & click `Commit changes`
 * Go to `/.github/workflows/gradle.yml`
 * Click `Edit this file` button
-![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/6dee0268-d8c2-47fe-81a6-4eaf9ad9cf55)
+![image](https://github.com/kissnavel/hoyoverse-github-action-daily-checkin/assets/53962152/23cd4a32-138a-4ac9-abbe-81ffd9f7a719)
 * Add the extra user secret (Remember the secret name you put)
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/1926c27f-8f68-4021-9d95-64c11a2babb5)
+* Click `Commit changes...` at bottom right & click `Commit changes`
 
 ## Check is it working
 * Go to `Actions` tab
 * If `Actions` is not enabled, just enable it
 * Select `Daily Check In Task`
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/2029ffe5-6ef2-4892-a182-224e57de76b8)
 * Click `Run workflow` -> `Run workflow`
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/a1e4dfb7-4024-4cef-b43f-5e3cbe3d96e1)
-
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/5104281a-b4aa-45b5-be76-d7ae14466877)
 * If you see a green tick beside them, it mean checkin supported
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/2a80e30d-df1b-4763-a3e2-1f57365d29e2)
