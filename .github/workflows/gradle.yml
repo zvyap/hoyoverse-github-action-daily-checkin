@@ -42,3 +42,5 @@ jobs:
         USER_2_TOKEN: ${{ secrets.LAWQZYZ_TOKEN }}
         USER_3_ID: ${{ secrets.VILIGAS96_TOKEN_ID }}
         USER_3_TOKEN: ${{ secrets.VILIGAS96_TOKEN }}
+        USER_4_ID: ${{ secrets.VILIGAS96_TOKEN_ID }}
+        USER_4_TOKEN: ${{ secrets.VILIGAS96_TOKEN }}
