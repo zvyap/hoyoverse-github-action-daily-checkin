@@ -40,3 +40,5 @@ jobs:
         USER_1_TOKEN: ${{ secrets.KISSNAVELHK_TOKEN }}
         USER_2_ID: ${{ secrets.LAWQZYZ_TOKEN_ID }}
         USER_2_TOKEN: ${{ secrets.LAWQZYZ_TOKEN }}
+        USER_3_ID: ${{ secrets.VILIGAS96_TOKEN_ID }}
+        USER_3_TOKEN: ${{ secrets.VILIGAS96_TOKEN }}
