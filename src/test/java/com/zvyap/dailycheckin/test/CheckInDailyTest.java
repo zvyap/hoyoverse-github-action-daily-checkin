@@ -44,6 +44,7 @@ public class CheckInDailyTest {
                         .token(HoyoToken.of(System.getenv("USER_4_ID"), System.getenv("USER_4_TOKEN")))
                         .game(GameType.GENSHIN_IMPACT)
                         .game(GameType.HONKAI_STAR_RAIL)
+                        .build()
 
 
         ));
