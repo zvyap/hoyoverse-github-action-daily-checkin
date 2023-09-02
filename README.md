@@ -31,6 +31,7 @@
 
 ## Put the token into github (LAST STEP)
 * Click `Settings` and click `Secrets and variables` -> `Actions` -> `New repository secret`
+
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/589f1a3a-ba94-48d3-8a34-0b31497a9abf)
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/b0c46819-dce8-4b66-88ea-05a5e01a3f0a)
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/30e8c938-4a1e-4971-ad98-8d30db536191)
