@@ -40,7 +40,7 @@ public class CheckInDailyTest {
                         .game(GameType.HONKAI_STAR_RAIL)
                         .build(),
 
-            CheckInAction.builder()
+                CheckInAction.builder()
                         .token(HoyoToken.of(System.getenv("USER_4_ID"), System.getenv("USER_4_TOKEN")))
                         .game(GameType.HONKAI_STAR_RAIL)
                         .build()
