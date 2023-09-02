@@ -27,7 +27,6 @@
 * For those only use for only account, you going to end here [If not scroll downward]
 * Just click `Commit changes...` at bottom right & click `Commit changes`
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/20756b0d-1f48-4dc6-a1cd-8a29e3a62162)
-<br>
 ![image](https://github.com/zvyap/hoyoverse-github-action-daily-checkin/assets/52874570/a1490ec8-909d-43f8-aacd-06c77f6489f8)
 
 ## Put the token into github (LAST STEP)
