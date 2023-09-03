@@ -36,6 +36,7 @@ jobs:
       with:
         arguments: build test
       env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         USER_1_ID: ${{ secrets.KISSNAVELHK_TOKEN_ID }}
         USER_1_TOKEN: ${{ secrets.KISSNAVELHK_TOKEN }}
         USER_2_ID: ${{ secrets.LAWQZYZ_TOKEN_ID }}
