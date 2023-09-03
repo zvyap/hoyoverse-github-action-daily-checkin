@@ -53,16 +53,6 @@ public class CheckInDailyTest {
                                 .build())
                         .game(GameType.GENSHIN_IMPACT)
                         .game(GameType.HONKAI_STAR_RAIL)
-                        .build(),
-
-                CheckInAction.builder()
-                        .token(HoyoToken.of(System.getenv("USER_4_ID"), System.getenv("USER_4_TOKEN")))
-                        .webhook(WebhookInfo.builder()
-                                .url(System.getenv("WEBHOOK_URL"))
-                                .avatar("https://cdn.discordapp.com/icons/1147763178378367016/a37a1c48f143a1d54a02fbecf5711cf9.webp")
-                                .name("小派蒙")
-                                .build())
-                        .game(GameType.HONKAI_STAR_RAIL)
                         .build()
 
 
